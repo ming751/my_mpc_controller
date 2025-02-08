@@ -1,0 +1,297 @@
+<?xml version="1.0" ?>
+<robot name="converted_robot">
+   <link name="world">
+      <inertial>
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+         <mass value="0.0"/>
+         <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <link name="base_link">
+      <inertial>
+         <origin xyz="-0.00119987 0.00043033 -0.0376466" rpy="0.06833946049465522 -0.004605925047553194 1.531357592714406"/>
+         <mass value="1.38"/>
+         <inertia ixx="0.00305403" iyy="0.00234908" izz="0.00110434" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+      <visual name="base_link">
+         <origin xyz="0.011352105582858358 3.328906542996829e-05 0.0091700832454207" rpy="-1.5729887691170703 -1.5285554423632142 -3.139586074619203"/>
+         <geometry>
+            <mesh filename="converted_base_link.stl"/>
+         </geometry>
+         <material name="white"/>
+      </visual>
+   </link>
+   <link name="world2base_link_fixed_jointbody">
+      <inertial>
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+         <mass value="0.001"/>
+         <inertia ixx="1e-09" iyy="1e-09" izz="1e-09" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="fixed" name="world2base_link_fixed">
+      <parent link="world"/>
+      <child link="world2base_link_fixed_jointbody"/>
+      <origin xyz="0.0 0.0 0.95" rpy="0.0 0.0 0.0"/>
+   </joint>
+   <joint type="fixed" name="world2base_link_fixed_offset">
+      <parent link="world2base_link_fixed_jointbody"/>
+      <child link="base_link"/>
+      <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
+   </joint>
+   <link name="torsoY_Link">
+      <inertial>
+         <origin xyz="-0.00119987 0.00043033 -0.0376466" rpy="0.06833946049465522 -0.004605925047553194 1.531357592714406"/>
+         <mass value="1.38"/>
+         <inertia ixx="0.00305403" iyy="0.00234908" izz="0.00110434" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+      <visual name="torsoY_Link">
+         <origin xyz="0.003573847139728883 6.94109192323835e-05 0.002208358399681898" rpy="0.25648655923649044 -0.0035378728105961432 1.5557904548721861"/>
+         <geometry>
+            <mesh filename="converted_torsoY_Link.stl"/>
+         </geometry>
+         <material name="white"/>
+      </visual>
+   </link>
+   <link name="base_link2torsoY_Link_fixed_jointbody">
+      <inertial>
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+         <mass value="0.001"/>
+         <inertia ixx="1e-09" iyy="1e-09" izz="1e-09" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="fixed" name="base_link2torsoY_Link_fixed">
+      <parent link="base_link"/>
+      <child link="base_link2torsoY_Link_fixed_jointbody"/>
+      <origin xyz="-0.00482885444895409 0.0 0.0660668871255227" rpy="-0.0017775732069690222 0.4712359863395261 -0.003915451151678832"/>
+   </joint>
+   <joint type="fixed" name="base_link2torsoY_Link_fixed_offset">
+      <parent link="base_link2torsoY_Link_fixed_jointbody"/>
+      <child link="torsoY_Link"/>
+      <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
+   </joint>
+   <link name="torsoR_Link">
+      <inertial>
+         <origin xyz="-0.0045593 1.65e-06 1.635e-05" rpy="1.5707963267948966 -1.5696587480221589 1.5707963267948966"/>
+         <mass value="2.13"/>
+         <inertia ixx="0.00250818" iyy="0.00235874" izz="0.00225394" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+      <visual name="torsoR_Link">
+         <origin xyz="-0.00013014065822800134 4.601207943567218e-09 -1.417484730904306e-07" rpy="-0.4319665239960411 -1.5707287056020485 2.0026180031006895"/>
+         <geometry>
+            <mesh filename="converted_torsoR_Link.stl"/>
+         </geometry>
+         <material name="white"/>
+      </visual>
+   </link>
+   <link name="torsoY_Link2torsoR_Link_fixed_jointbody">
+      <inertial>
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+         <mass value="0.001"/>
+         <inertia ixx="1e-09" iyy="1e-09" izz="1e-09" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="fixed" name="torsoY_Link2torsoR_Link_fixed">
+      <parent link="torsoY_Link"/>
+      <child link="torsoY_Link2torsoR_Link_fixed_jointbody"/>
+      <origin xyz="0.00223949 0.0 0.057" rpy="0.0 0.0 0.003488683438998014"/>
+   </joint>
+   <joint type="fixed" name="torsoY_Link2torsoR_Link_fixed_offset">
+      <parent link="torsoY_Link2torsoR_Link_fixed_jointbody"/>
+      <child link="torsoR_Link"/>
+      <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
+   </joint>
+   <link name="torsoP_Link">
+      <inertial>
+         <origin xyz="0.0 0.00060318 0.187298" rpy="0.0 0.0 0.0"/>
+         <mass value="9.46"/>
+         <inertia ixx="0.102012" iyy="0.0825985" izz="0.0559009" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+      <visual name="torsoP_Link">
+         <origin xyz="0.015060497677703427 0.0014782477323562766 0.18005305733134516" rpy="-0.100778531765449 -0.2546445398788517 -0.0023014120067339078"/>
+         <geometry>
+            <mesh filename="converted_torsoP_Link.stl"/>
+         </geometry>
+         <material name="white"/>
+      </visual>
+   </link>
+   <link name="torsoR_Link2torsoP_Link_fixed_jointbody">
+      <inertial>
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+         <mass value="0.001"/>
+         <inertia ixx="1e-09" iyy="1e-09" izz="1e-09" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="fixed" name="torsoR_Link2torsoP_Link_fixed">
+      <parent link="torsoR_Link"/>
+      <child link="torsoR_Link2torsoP_Link_fixed_jointbody"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.4712362085273176 0.0"/>
+   </joint>
+   <joint type="fixed" name="torsoR_Link2torsoP_Link_fixed_offset">
+      <parent link="torsoR_Link2torsoP_Link_fixed_jointbody"/>
+      <child link="torsoP_Link"/>
+      <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
+   </joint>
+   <link name="L_shoulderY_Link">
+      <inertial>
+         <origin xyz="0.00138896 0.00748738 0.0246109" rpy="0.9942736550585395 0.4532471910980007 1.534855562266411"/>
+         <mass value="0.064"/>
+         <inertia ixx="3.6238e-05" iyy="2.83656e-05" izz="2.55964e-05" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+      <visual name="L_shoulderY_Link">
+         <origin xyz="0.003186508032270655 0.0057967803188059665 0.022173240203647308" rpy="1.1800128371906107 0.45090753220161384 1.5161405627784892"/>
+         <geometry>
+            <mesh filename="converted_L_shoulderY_Link.stl"/>
+         </geometry>
+         <material name="white"/>
+      </visual>
+   </link>
+   <link name="arm_left_humeraly_jointbody">
+      <inertial>
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+         <mass value="0.001"/>
+         <inertia ixx="1e-09" iyy="1e-09" izz="1e-09" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="revolute" name="arm_left_humeraly">
+      <parent link="torsoP_Link"/>
+      <child link="arm_left_humeraly_jointbody"/>
+      <origin xyz="0.00679205 0.130034 0.260803" rpy="-0.7732662477156418 0.04366415754990394 0.04469262519054962"/>
+      <axis xyz="0.0 0.0 -1.0"/>
+      <limit lower="-1.2" upper="2.3" effort="100" velocity="100"/>
+   </joint>
+   <joint type="fixed" name="arm_left_humeraly_offset">
+      <parent link="arm_left_humeraly_jointbody"/>
+      <child link="L_shoulderY_Link"/>
+      <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
+   </joint>
+   <link name="L_shoulderR_Link">
+      <inertial>
+         <origin xyz="-0.00168235 0.0303773 -0.00596837" rpy="-0.15054556832541777 -1.2392590329566646 1.7110315112722976"/>
+         <mass value="0.77"/>
+         <inertia ixx="0.00205003" iyy="0.00201329" izz="0.000520217" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+      <visual name="L_shoulderR_Link">
+         <origin xyz="-0.00030426808829509753 0.046777219991955714 -0.00988308619260718" rpy="-0.04152237200071085 -1.328841931882124 1.5792663160445346"/>
+         <geometry>
+            <mesh filename="converted_L_shoulderR_Link.stl"/>
+         </geometry>
+         <material name="white"/>
+      </visual>
+   </link>
+   <link name="arm_left_humeralr_jointbody">
+      <inertial>
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+         <mass value="0.001"/>
+         <inertia ixx="1e-09" iyy="1e-09" izz="1e-09" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="revolute" name="arm_left_humeralr">
+      <parent link="L_shoulderY_Link"/>
+      <child link="arm_left_humeralr_jointbody"/>
+      <origin xyz="-0.00184029 0.011 0.038" rpy="-0.18725528931084406 0.0 0.0"/>
+      <axis xyz="1.0 0.0 0.0"/>
+      <limit lower="-0.15" upper="1.0" effort="100" velocity="100"/>
+   </joint>
+   <joint type="fixed" name="arm_left_humeralr_offset">
+      <parent link="arm_left_humeralr_jointbody"/>
+      <child link="L_shoulderR_Link"/>
+      <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
+   </joint>
+   <link name="L_elbowY_Link">
+      <inertial>
+         <origin xyz="-0.00070115 0.00079643 -0.0602248" rpy="-9.037574639880752e-05 -0.004751680151946713 1.327215257251984"/>
+         <mass value="0.673"/>
+         <inertia ixx="0.00125624" iyy="0.00118658" izz="0.000254297" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+      <visual name="L_elbowY_Link">
+         <origin xyz="0.0008982149790736075 0.0008811478588799536 -0.046316303524816964" rpy="-0.0341221851668253 -0.03803484902086707 1.3270485624845514"/>
+         <geometry>
+            <mesh filename="converted_L_elbowY_Link.stl"/>
+         </geometry>
+         <material name="white"/>
+      </visual>
+   </link>
+   <link name="arm_left_wristr_jointbody">
+      <inertial>
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+         <mass value="0.001"/>
+         <inertia ixx="1e-09" iyy="1e-09" izz="1e-09" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="revolute" name="arm_left_wristr">
+      <parent link="L_shoulderR_Link"/>
+      <child link="arm_left_wristr_jointbody"/>
+      <origin xyz="0.0009 0.109108 -0.0422899" rpy="0.3003809268729311 -1.0741886918792272 1.2320639086929173"/>
+      <axis xyz="0.0 0.0 1.0"/>
+      <limit lower="0.0" upper="1.0" effort="100" velocity="100"/>
+   </joint>
+   <joint type="fixed" name="arm_left_wristr_offset">
+      <parent link="arm_left_wristr_jointbody"/>
+      <child link="L_elbowY_Link"/>
+      <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
+   </joint>
+   <link name="L_elbowR_Link">
+      <inertial>
+         <origin xyz="0.0010561 0.00010278 -0.0528535" rpy="0.002763223478928434 0.0001124041554096955 1.6411724273813362"/>
+         <mass value="1.373"/>
+         <inertia ixx="0.0100972" iyy="0.0100662" izz="0.000581097" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+      <visual name="L_elbowR_Link">
+         <origin xyz="0.00257844654020576 0.00019474754596149083 -0.09254701096086188" rpy="-0.016015522880670985 -0.0021215761780701836 1.4637578774313855"/>
+         <geometry>
+            <mesh filename="converted_L_elbowR_Link.stl"/>
+         </geometry>
+         <material name="white"/>
+      </visual>
+   </link>
+   <link name="arm_left_wristr1_jointbody">
+      <inertial>
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+         <mass value="0.001"/>
+         <inertia ixx="1e-09" iyy="1e-09" izz="1e-09" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="revolute" name="arm_left_wristr1">
+      <parent link="L_elbowY_Link"/>
+      <child link="arm_left_wristr1_jointbody"/>
+      <origin xyz="-0.00155284 0.000385608 -0.1267" rpy="0.03300723674088776 -5.824164928114328e-09 -0.2434015634318332"/>
+      <axis xyz="-1.0 0.0 0.0"/>
+      <limit lower="-0.0" upper="1.0" effort="100" velocity="100"/>
+   </joint>
+   <joint type="fixed" name="arm_left_wristr1_offset">
+      <parent link="arm_left_wristr1_jointbody"/>
+      <child link="L_elbowR_Link"/>
+      <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
+   </joint>
+   <material name="white">
+      <color rgba="1 1 1 1"/>
+   </material>
+   <!-- Parent link (assuming it exists) -->
+
+<!-- End-effector (eef) link -->
+<link name="eef">
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <sphere radius="0.03"/>
+        </geometry>
+        <material name="red_transparent">
+            <color rgba="1 0 0 0.1"/>
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <sphere radius="0.03"/>
+        </geometry>
+    </collision>
+</link>
+
+<!-- Joint connecting the parent link to the eef link -->
+<joint name="parent_to_eef_joint" type="fixed">
+    <parent link="L_elbowR_Link"/>
+    <child link="eef"/>
+    <origin xyz="0 0 -0.27" rpy="0 0 0"/>
+</joint>
+<frame name="eef_frame" link="eef" />
+</robot>
