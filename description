@@ -26,4 +26,8 @@ $ git branch
 * dev
   master
 
+现在，我们把dev分支的工作成果合并到master分支上：
+
+$ git merge dev
+
 
