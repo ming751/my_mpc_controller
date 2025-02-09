@@ -35,7 +35,17 @@ $ git merge dev
 $ git branch -d dev
 Deleted branch dev (was b17d20e).
 
+<<<<<<< Updated upstream
 fix bug
+=======
+stash 命令
+
+$ git stash
+
+
+
+
+>>>>>>> Stashed changes
 
 
 
