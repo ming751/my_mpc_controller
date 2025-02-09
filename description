@@ -1,2 +1,12 @@
-joint pos control based mpc controller
+joint pos control based mpc controller3. 将远程仓库的修改同步到本地
+如果在 GitHub 网页修改后，本地仓库需要拉取最新代码：
+
+<BASH>
+# 切换到 main 分支
+git checkout main
+
+# 拉取远程最新代码（等同于 git fetch + git merge）
+git pull origin main
 git pull origin main --allow-unrelated-histories --no-rebase
+
+
