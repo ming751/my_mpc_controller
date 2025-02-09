@@ -50,7 +50,7 @@ def main():
         q_current = data.qpos[:]
         v_current = data.qvel[:]
         
-        # 增加重规划频率
+        # 增加重规划频率，mpc控制频率为20hz
         if i % 50 == 0:
             state_traj, control_traj = robot.solve_mpc(
                 mpc_problem=mpc_prob,
