@@ -35,5 +35,7 @@ $ git merge dev
 $ git branch -d dev
 Deleted branch dev (was b17d20e).
 
+fix bug
+
 
 
