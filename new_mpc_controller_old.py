@@ -2,7 +2,7 @@ import pinocchio as pin
 import numpy as np
 from pinocchio import casadi as cpin
 import casadi
-
+import time
 class RobotKinematics:
     def __init__(self, model_path, end_frame_name,predict_horzion = 100):
         """
@@ -282,10 +282,13 @@ if __name__ == "__main__":
     print("Position error:", pos_error)
     print("Pose error:", pose_error)
 
-    mpc_prob = robot.define_mpc(T=1000, w_run=0.1, w_term=10.0, DT=0.002)
+    mpc_prob = robot.define_mpc(T=100, w_run=0.1, w_term=10.0, DT=0.002)
+    start_time = time.time()
     
     # Solve trajectory optimization
     sol_qs , _ = robot.solve_mpc(mpc_problem=mpc_prob,initial_q=q, initial_v = np.zeros(4) ,target_pos=target_pos,target_rot= target_rot)
+    end_time = time.time()
+    print(f"MPC 求解时间: {end_time - start_time} 秒")
     print(sol_qs[-1])
 
     pin.forwardKinematics(robot.model, robot.data, sol_qs[-1][:robot.model.nq], np.zeros(robot.model.nv), np.zeros(robot.model.nv))
